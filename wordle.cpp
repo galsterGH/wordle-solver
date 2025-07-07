@@ -1,3 +1,7 @@
+// wordle.cpp
+// Implementation file for the command line Wordle solver.  Contains
+// utility functions for pattern generation and entropy based guessing
+// as well as the entry point used for offline play or testing.
 #include "wordle.h"                   // Wordle class header
 #include <array>                      // For std::array
 #include <iostream>                   // For console I/O
