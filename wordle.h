@@ -2,34 +2,32 @@
 #define _WORDLE_H_
 
 #include <cstddef>
+#include <optional>
 #include <string>
 #include <vector>
-#include <optional>
 
-class Wordle{
-    public:
-        Wordle(){}
+class Wordle {
+ public:
+  Wordle() {}
 
-        Wordle(size_t wordSize, const std::string &pathToWords):wordSize(wordSize){
-            LoadDictionary(pathToWords);
-        }
+  Wordle(size_t wordSize, const std::string &pathToWords) : wordSize(wordSize) {
+    LoadDictionary(pathToWords);
+  }
 
-        Wordle(const Wordle& other) = delete;
-        Wordle(Wordle && other) = delete;
-        
-        ~Wordle(){}
+  Wordle(const Wordle &other) = delete;
+  Wordle(Wordle &&other) = delete;
 
-        std::optional<std::string> PlayRandomGame();
-        void PlayOffLineGame();
-        
-    private:
+  ~Wordle() {}
 
-        size_t wordSize;
-        std::vector<std::string> dictionary;
-        
-        void LoadDictionary(const std::string &path);
-        std::string GetNextBestGuess(const std::vector<std::string> &validWords);
+  std::optional<std::string> PlayRandomGame();
+  void PlayOffLineGame();
+
+ private:
+  size_t wordSize;
+  std::vector<std::string> dictionary;
+
+  void LoadDictionary(const std::string &path);
+  std::string GetNextBestGuess(const std::vector<std::string> &validWords);
 };
-
 
 #endif
